@@ -9,7 +9,7 @@ WhereList - Simpler `where` constraints for items of lists
 ```perl6
 use WhereList;
 
-subset StrArray of Array where all-items *.chars ≥ 3, Str, *.contains: any <o a e>;
+subset StrArray of Array where all-items Str, *.chars ≥ 3, *.contains: any <o a e>;
 
 say [<foo bar meow>] ~~ StrArray; # OUTPUT: «True␤»
 say ['dddrrrrrrrrr'] ~~ StrArray; # OUTPUT: «False␤»
@@ -52,6 +52,8 @@ Takes a list of matchers (anything that can be fed to
 [`.grep`](https://docs.perl6.org/routine/grep)). Returns a
 [`Callable`](https://docs.perl6.org/type/Callable) that a `where` clause
 can use to check whether *all* items in a list match *all* of these matchers.
+Matchers will be checked in the order provided, short-circuiting as soon as
+a matcher fails.
 
 Notes and tips:
 

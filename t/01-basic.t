@@ -4,7 +4,7 @@ use WhereList;
 plan 7;
 
 subset StrArray of Array
-  where all-items *.chars ≥ 3, Str, *.contains: any <o a e>;
+  where all-items Str, *.chars ≥ 3, *.contains: any <o a e>;
 
 is [<foo bar meow>], StrArray;
 is [<ooh come onn>], StrArray;
