@@ -2,7 +2,7 @@
     "perl"         : "6.c",
     "name"         : "WhereList",
     "license"      : "Artistic-2.0",
-    "version"      : "1.001001",
+    "version"      : "1.001002",
     "description"  : "Simpler `where` constraints for items of lists",
     "tags"         : [ "lists" ],
     "depends"      : [ ],
