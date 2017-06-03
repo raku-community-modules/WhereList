@@ -17,7 +17,7 @@ say [<ha ha ha ha >] ~~ StrArray; # OUTPUT: «False␤»
 say [<ooh come onn>] ~~ StrArray; # OUTPUT: «True␤»
 
 class Foo {
-    has @.bar where all-items Str|Nil|Nil, * === Any;
+    has @.bar where all-items any Str|Nil|Int:D, * === Any
 }
 
 sub foo (
