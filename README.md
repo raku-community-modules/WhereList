@@ -21,7 +21,7 @@ class Foo {
 }
 
 sub foo (
-    @meows where all-items(/meow/), # <-- use parens to limit scope of args
+    @meows where all-items(/meow/), # <-- use parens to avoid gobbling of params that follow
     @barks where all-items(/woof/),
 ) {
     …
