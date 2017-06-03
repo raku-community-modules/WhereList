@@ -22,7 +22,7 @@ class Foo {
 
 sub foo (
     @meows where all-items(/meow/), # <-- use parens to avoid gobbling of params that follow
-    @barks where all-items(/woof/),
+    @barks where all-items(/woof/) = ['woof'], # <-- or to add defaults
 ) {
     …
 }
