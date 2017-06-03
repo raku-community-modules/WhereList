@@ -1,7 +1,7 @@
 use lib <lib>;
 use Testo;
 use WhereList;
-plan 7;
+plan 8;
 
 subset StrArray of Array
   where all-items Str, *.chars ≥ 3, *.contains: any <o a e>;
@@ -24,3 +24,6 @@ class Foo {
 }
 try Foo.new(:bar<42 meows>).bar;
 is $!, X::TypeCheck;
+
+subset Meows where all-items {die 'meow'};
+is [42] ~~ Meows, *.not;

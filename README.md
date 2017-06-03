@@ -53,7 +53,9 @@ Takes a list of matchers (anything that can be fed to
 [`Callable`](https://docs.perl6.org/type/Callable) that a `where` clause
 can use to check whether *all* items in a list match *all* of these matchers.
 Matchers will be checked in the order provided, short-circuiting as soon as
-a matcher fails.
+a matcher fails. If an exception occurs during matching, it will be turned
+into a [`Failure`](https://docs.perl6.org/type/Failure), gracefully failing
+the type check.
 
 Notes and tips:
 
