@@ -1,6 +1,6 @@
-use lib <lib>;
 use Testo;
 use WhereList;
+
 plan 8;
 
 subset StrArray of Array
@@ -18,7 +18,6 @@ is foo(42, Str, Nil, Any), 42;
 try foo Int, Str, Nil, Any;
 is $!, X::TypeCheck;
 
-
 class Foo {
     has @.bar where all-items any(Str|Nil|Int:D, * === Any), * !~~ IntStr
 }
@@ -27,3 +26,5 @@ is $!, X::TypeCheck;
 
 subset Meows where all-items {die 'meow'};
 is [42] ~~ Meows, *.not;
+
+# vim: expandtab shiftwidth=4

@@ -1,18 +1,32 @@
 {
-    "perl"         : "6.c",
-    "name"         : "WhereList",
-    "license"      : "Artistic-2.0",
-    "version"      : "1.001002",
-    "description"  : "Simpler `where` constraints for items of lists",
-    "tags"         : [ "lists" ],
-    "depends"      : [ ],
-    "test-depends" : [
-        "Testo",
-        "Test::META"
-    ],
-    "provides"     : {
-        "WhereList" : "lib/WhereList.pm6"
-    },
-    "authors"       : ["Zoffix Znet"],
-    "support"       : {"source" : "https://github.com/raku-community-modules/WhereList.git"}
+  "auth": "zef:raku-community-modules",
+  "authors": [
+    "Zoffix Znet"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Simpler C<where> constraints for items of lists",
+  "license": "Artistic-2.0",
+  "name": "WhereList",
+  "perl": "6.c",
+  "provides": {
+    "WhereList": "lib/WhereList.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/raku-community-modules/WhereList.git",
+  "support": {
+    "source": "https://github.com/raku-community-modules/WhereList.git"
+  },
+  "tags": [
+    "where",
+    "subset",
+    "lists"
+  ],
+  "test-depends": [
+    "Testo"
+  ],
+  "version": "1.1"
 }

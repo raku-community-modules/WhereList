@@ -1,10 +1,12 @@
-[![Build Status](https://travis-ci.org/zoffixznet/perl6-Proc-Q.svg)](https://travis-ci.org/zoffixznet/perl6-Proc-Q)
+[![Actions Status](https://github.com/raku-community-modules/WhereList/actions/workflows/test.yml/badge.svg)](https://github.com/raku-community-modules/WhereList/actions)
 
-# NAME
+NAME
+====
 
 WhereList - Simpler `where` constraints for items of lists
 
-# SYNOPSIS
+SYNOPSIS
+========
 
 ```raku
 use WhereList;
@@ -26,73 +28,46 @@ sub foo (
 ) {
     …
 }
-
 ```
 
-# DESCRIPTION
+DESCRIPTION
+===========
 
-Type-constraining elements of list parameters, attributes, and subsets can be
-done with `where` clauses, however, they can quickly get overly complex when
-you want to constraint using multiple requirements. This module addresses that
-problem!
+Type-constraining elements of list parameters, attributes, and subsets can be done with `where` clauses, however, they can quickly get overly complex when you want to constraint using multiple requirements. This module addresses that problem!
 
-# EXPORTED SUBROUTINES
+EXPORTED SUBROUTINES
+====================
 
-## `&all-items`
-
-Defined as:
-
-```raku
-    sub all-items (+@matchers)
-```
+sub all-items(+@matchers)
+-------------------------
 
 See SYNOPSIS for sample use.
 
-Takes a list of matchers (anything that can be fed to
-[`.grep`](https://docs.raku.org/routine/grep)). Returns a
-[`Callable`](https://docs.raku.org/type/Callable) that a `where` clause
-can use to check whether *all* items in a list match *all* of these matchers.
-Matchers will be checked in the order provided, short-circuiting as soon as
-a matcher fails. If an exception occurs during matching, it will be turned
-into a [`Failure`](https://docs.raku.org/type/Failure), gracefully failing
-the type check.
+Takes a list of matchers (anything that can be fed to [`.grep`](https://docs.raku.org/routine/grep). Returns a [`Callable`](https://docs.raku.org/type/Callable) that a `where` clause can use to check whether *all* items in a list match *all* of these matchers. Matchers will be checked in the order provided, short-circuiting as soon as a matcher fails. If an exception occurs during matching, it will be turned into a [`Failure`](https://docs.raku.org/type/Failure), gracefully failing the type check.
 
-Notes and tips:
+### Notes and tips
 
-- An empty list always matches the type constraint.
-- There's no thunking involved. `where all-items .so` is an error, as `.so` will
-  be called on the list itself, not each of the elements and its return value
-  will be used as a matcher. Use
-  [`WhateverCode`](https://docs.raku.org/type/WhateverCode) instead:
-      `where all-items *.so`
-- All [`Seq`s](https://docs.raku.org/type/Seq) will be
-  [cached](https://docs.raku.org/type/Seq).
-- Don't forget to add parens around the args when more params follow this
-  routine (see `sub` example in SYNOPSIS).
-- Don't drink bleach.
-- [Donate to TPF](https://donate.perlfoundation.org/).
+An empty list always matches the type constraint.
 
-----
+There's no thunking involved. `where all-items .so` is an error, as `.so` will be called on the list itself, not each of the elements and its return value will be used as a matcher. Use [`WhateverCode`](https://docs.raku.org/type/WhateverCode) instead: `where all-items *.so`.
 
-#### REPOSITORY
+All [`Seq`s](https://docs.raku.org/type/Seq) will be [cached](https://docs.raku.org/type/Seq).
 
-Fork this module on GitHub:
-https://github.com/raku-community-modules/WhereList
+Don't forget to add parens around the args when more params follow this routine (see `sub` example in SYNOPSIS).
 
-#### BUGS
+Don't drink bleach.
 
-To report bugs or request features, please use
-https://github.com/raku-community-modules/WhereList/issues
+AUTHOR
+======
 
-#### AUTHOR
+Zoffix Znet
 
-Zoffix Znet (http://perl6.party/)
+COPYRIGHT AND LICENSE
+=====================
 
-#### LICENSE
+Copyright 2015 - 2016 Zoffix Znet
 
-You can use and distribute this module under the terms of the
-The Artistic License 2.0. See the `LICENSE` file included in this
-distribution for complete details.
+Copyright 2017 - 2022 Raku Community
 
-The `META6.json` file of this distribution may be distributed and modified
-without restrictions or attribution.
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
